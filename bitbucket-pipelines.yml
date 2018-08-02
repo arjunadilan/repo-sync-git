@@ -1,36 +1,10 @@
-# This is a sample build configuration for Other.
-# Check our guides at https://confluence.atlassian.com/x/5Q4SMw for more examples.
-# Only use spaces to indent your .yml configuration.
-# -----
-# You can specify a custom docker image from Docker Hub as your build environment.
-
-# enable Docker for your repository
-
-# enable Docker for your repository
+#pipeline 
 options:
   docker: true
 
 pipelines:
   branches: 
     master:
-    - step:
-        name: build and publish docker image.
-        services:
-          - docker # enable Docker for your repository
-        script: # Modify the commands below to build your repository.
-
-
-          # set DOCKER_HUB_USERNAME and DOCKER_HUB_PASSWORD as environment variables
-          # Docker variables
-          #- export IMAGE_NAME="${DOCKER_HUB_USERNAME}/${BITBUCKET_REPO_SLUG}:${BITBUCKET_BUILD_NUMBER}"
-          # build and test the Node app
-          #- chmod -R 600 /root/.ssh
-          # build the Docker image (this will use the Dockerfile in the root of the repo)
-          #- docker build -t $IMAGE_NAME .
-          # authenticate with the Docker Hub registry
-          - docker login --username $DOCKER_HUB_USERNAME --password $DOCKER_HUB_PASSWORD
-          # push the new Docker image to the Docker registry
-         # - docker push $IMAGE_NAME
     - step:
         name: deploy-to-ecs
         image: atlassian/pipelines-awscli:latest

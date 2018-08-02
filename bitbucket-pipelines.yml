@@ -23,8 +23,6 @@ pipelines:
           # Docker variables
           - export IMAGE_NAME="${DOCKER_HUB_USERNAME}/${BITBUCKET_REPO_SLUG}:${BITBUCKET_BUILD_NUMBER}"
           # build and test the Node app
-          - npm install
-          - npm test
           # build the Docker image (this will use the Dockerfile in the root of the repo)
           - docker build -t $IMAGE_NAME .
           # authenticate with the Docker Hub registry

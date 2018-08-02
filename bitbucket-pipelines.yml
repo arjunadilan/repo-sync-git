@@ -54,7 +54,7 @@ pipelines:
           - export TASK_VERSION=$(aws ecs register-task-definition
             --family "${ECS_TASK_NAME}"
             --container-definitions
-            '[{"name":"app","image":"'"${IMAGE_NAME}"'","memory":1024}]'
+            '[{"name":"app","image":"'"${IMAGE_NAME}"'","memory":128}]'
             | jq --raw-output '.taskDefinition.revision')
           - echo "Registered ECS Task Definition:" "${TASK_VERSION}"
           # Create ECS Service

@@ -1,14 +1,12 @@
 #Prod Deployment pipeline 
 # Temasys Comunications (PVT) LTD
-
-
 pipelines:
   branches: 
     master:
     - step:
         name: deploy-to-ecs
         image: atlassian/pipelines-awscli:latest
-        deployment: test
+        deployment: SDK
         script:
           - export AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION:-"us-east-1"} 
           - export IMAGE_NAME="${DOCKER_IMAGE_NAME}"

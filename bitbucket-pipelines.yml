@@ -6,7 +6,7 @@ pipelines:
     - step:
         name: deploy-to-ecs
         image: atlassian/pipelines-awscli:latest
-        deployment: SDK
+        deployment: production
         script:
           - export AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION:-"us-east-1"} 
           - export IMAGE_NAME="${DOCKER_IMAGE_NAME}"

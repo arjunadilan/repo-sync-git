@@ -5,6 +5,8 @@
 # You can specify a custom docker image from Docker Hub as your build environment.
 
 # enable Docker for your repository
+
+# enable Docker for your repository
 options:
   docker: true
 
@@ -60,5 +62,3 @@ pipelines:
           - aws ecs update-service --cluster "${ECS_CLUSTER_NAME}" --service "${ECS_SERVICE_NAME}" --task-definition "${ECS_TASK_NAME}:${TASK_VERSION}"
           # Follow https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html for instrunctions
           # needed to provide the compute resources (EC2 instances) that the tasks will run on.
-
-

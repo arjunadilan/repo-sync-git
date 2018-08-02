@@ -11,6 +11,7 @@ options:
   docker: true
 
 pipelines:
+  branches: '{master}'
   default:
     - step:
         name: build and publish docker image.
